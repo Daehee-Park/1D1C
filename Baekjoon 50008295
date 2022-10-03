@@ -1,0 +1,16 @@
+# 벌집문제, 
+a=int(input())
+
+n_2=0
+n_1=1
+step=1
+while True:
+  if a==1:
+    print(1)
+    break
+  n_2+=6
+  n_1+=n_2
+  step+=1
+  if n_1 >= a:
+    print(step)
+    break
