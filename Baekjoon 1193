@@ -1,0 +1,20 @@
+% 지그재그 분수 출력
+
+a=int(input())
+
+n_2=1
+n_1=1
+step=1
+while True:
+  if a==1:
+    print('1/1')
+    break
+  n_2+=1
+  n_1+=n_2
+  step+=1
+  if n_1>=a:
+    if step%2==0:
+      print("%d/%d"%(step-(n_1-a),n_1+1-a))
+    else:
+      print("%d/%d"%(n_1+1-a,step-(n_1-a)))
+    break
