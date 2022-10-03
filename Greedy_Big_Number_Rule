@@ -1,13 +1,14 @@
 import sys
 import time
 start_time=time.time()
-#N/M/K 입력받기
+#N/M/K 입력받기, input보다 sys.stdin 이용하는 것이 빠르다.
 n,m,k = map(int,sys.stdin.readline().split())
 # N개의 수를 공백으로 구분하여 입력받기
 data=list(map(int,sys.stdin.readline().split()))
 # 오름차순 정렬
 data.sort()
 
+# For문이나 While문으로 받는 것 보다 규칙을 파악해서 더하는게 빠르다
 sum=(data[n-1]*k+data[n-2])*(m//(k+1))+(data[n-1]*(m%(k+1)))
 end_time=time.time()
 print(sum,end_time-start_time)
