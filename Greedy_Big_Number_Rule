@@ -1,0 +1,13 @@
+import sys
+import time
+start_time=time.time()
+#N/M/K 입력받기
+n,m,k = map(int,sys.stdin.readline().split())
+# N개의 수를 공백으로 구분하여 입력받기
+data=list(map(int,sys.stdin.readline().split()))
+# 오름차순 정렬
+data.sort()
+
+sum=(data[n-1]*k+data[n-2])*(m//(k+1))+(data[n-1]*(m%(k+1)))
+end_time=time.time()
+print(sum,end_time-start_time)
