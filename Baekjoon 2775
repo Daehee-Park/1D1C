@@ -1,0 +1,21 @@
+# 부녀회장이 되자
+# n중 계차수열, a[w]+=a[w-1]
+# 2중 for문이 되어도 겁먹지 말기
+
+import sys,math
+T=int(sys.stdin.readline())
+input=[]
+for i in range(0,T):
+  input.append(int(sys.stdin.readline()))
+  input.append(int(sys.stdin.readline()))
+floor=0
+for i in range(T):
+  r,c=input[2*i],input[2*i+1]
+  a=list(range(1,c+1))
+  if r==0:
+    print(c)
+  else:
+    for j in range(r):
+      for w in range(1,c):
+        a[w]+=a[w-1]
+    print(a[c-1])
