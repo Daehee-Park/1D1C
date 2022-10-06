@@ -1,0 +1,14 @@
+#소인수분해
+
+import sys
+N=int(sys.stdin.readline())
+M=N
+a=2
+while True:
+  if N==1 or a==M+1:
+    break
+  if N%a==0:
+    print(a)
+    N=N//a
+  elif N%a!=0 and N!=a:
+    a+=1
