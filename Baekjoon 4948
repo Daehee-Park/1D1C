@@ -1,0 +1,21 @@
+# N~2N까지 소수가 몇개인지 계속 출력하다가 0 입력받으면 스톱
+
+import sys
+count=0
+a=[]
+while True:
+  M=int(sys.stdin.readline())
+  if M==0:
+    break
+  for i in range(M+1,2*M+1):
+    if i==1:
+          continue
+    for j in range(2,int(i**0.5)+1):
+        if i%j==0:
+            break
+    else:
+        count+=1
+  a.append(count)
+  count=0
+for i in range(len(a)):
+  print(a[i])
