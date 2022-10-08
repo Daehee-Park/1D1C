@@ -1,0 +1,16 @@
+# 골드바흐의 추측 //
+import sys
+N=int(sys.stdin.readline())
+d=[]
+q=[2]
+for i in range(N):
+  d.append(int(sys.stdin.readline()))
+for i in range(0,N):
+  for w in range(2,d[i]):
+    for j in range(2,int(d[i]**0.5)+1):
+      if w%j==0:
+        break
+      else:
+        q.append(w)
+        break
+  q=[2]
