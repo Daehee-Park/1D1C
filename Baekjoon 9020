@@ -1,8 +1,7 @@
-# 골드바흐의 추측 //
 import sys,math
 N=int(sys.stdin.readline())
 d=[]
-q=[2]
+q=[]
 a=0
 for i in range(N):
   d.append(int(sys.stdin.readline()))
@@ -10,14 +9,18 @@ for i in range(0,N):
   for w in range(2,d[i]):
     for j in range(2,int(w**0.5)+1):
       if w%j==0:
+        a=1
         break
+    if a==0:  
       q.append(w)
-      break
-  print(q)
-  a=d[i]-q[math.ceil(len(q)/2)-1]
+    a=0
+  a=d[i]-q[math.ceil(len(q)/2)]
   while True:
     if a in q:
-      print(d[i]-a,a)
+      if a>=d[i]-a:
+        print(d[i]-a,a)
+      else:
+        print(a,d[i]-a)
       break
     elif a==2:
       break
