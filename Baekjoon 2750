@@ -1,0 +1,9 @@
+#수 정렬
+import sys,math
+N=int(sys.stdin.readline())
+d=[]
+for i in range(N):
+  d.append(int(sys.stdin.readline()))
+d.sort()
+for j in range(N):
+  print(d[j])
