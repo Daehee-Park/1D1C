@@ -1,0 +1,27 @@
+# 최빈값 중 2번째로 작은수 출력
+
+import sys,math
+from collections import Counter
+N=int(sys.stdin.readline())
+d=[]
+s=0
+for i in range(N):
+  d.append(int(sys.stdin.readline()))
+d.sort()
+c=Counter(d)
+t=list(c.keys())
+t.sort()
+q=[]
+for i in range(len(t)):
+  q.append(c[t[i]])
+for i in range(N):
+  s+=d[i]
+print(round(s/N),d[math.floor(N/2)],sep='\n')
+if q.count(max(q))>=2:
+  q=list(k for k, v in c.items() if v==max(q))
+  q.sort()
+  print(q[1])
+else:
+  q=list(k for k, v in c.items() if v==max(q))
+  print(q[0])
+print(d[N-1]-d[0])
