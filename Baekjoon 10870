@@ -1,0 +1,8 @@
+#피보나치 함수로 정의(재귀함수)
+
+def Fib(N):
+  if N<=1:
+    return N
+  return Fib(N-2)+Fib(N-1)
+n=int(input())
+print(Fib(n))
