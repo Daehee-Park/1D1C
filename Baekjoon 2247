@@ -1,0 +1,17 @@
+#별찍기 문제(재귀함수 )
+
+def Stars(N):
+  if N==1:
+    return ['*']
+  Star=Stars(N//3)
+  R=[]
+
+  for i in Star:
+    R.append(i*3)
+  for i in Star:
+    R.append(i+' '*(N//3)+i)
+  for i in Star:
+    R.append(i*3)
+  return R
+n=int(input())
+print('\n'.join(Stars(n)))
