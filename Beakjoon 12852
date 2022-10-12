@@ -1,0 +1,19 @@
+#다이나믹 프로그래밍 대표문제, 1로 만들기, 상향식 접근
+
+N=int(input())
+a=[0]*(N+1)
+b=[0]*(N+1)
+for i in range(2,N+1):
+  a[i]=a[i-1]+1
+  b[i]=i-1
+  if i%2==0 and a[i]>a[i//2]+1:
+    a[i]=a[i//2]+1
+    b[i]=i//2
+  if i%3==0 and a[i]>a[i//3]+1:
+    a[i]=a[i//3]+1
+    b[i]=i//3
+print(a[N])
+print(N,end=' ')
+while b[N]!=0:
+  print(b[N],end=' ')
+  N=b[N]
