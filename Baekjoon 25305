@@ -1,0 +1,7 @@
+#정렬 쉬운문제
+
+import sys
+N,k=map(int,input().split())
+a=list(map(int,sys.stdin.readline().split()))
+a.sort()
+print(a[-k])
