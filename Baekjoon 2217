@@ -1,0 +1,12 @@
+#로프 중량 최대 문제
+
+import sys
+
+N=int(sys.stdin.readline())
+w=[]
+for _ in range(N):
+  w.append(int(sys.stdin.readline()))
+w.sort()
+for i in range(len(w)):
+  w[i]*=len(w)-i
+print(max(w))
