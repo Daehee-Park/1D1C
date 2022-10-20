@@ -1,0 +1,13 @@
+# 666이 포함된 N번째 수 구하기, 브루트포스
+
+import sys
+N=int(sys.stdin.readline())
+tmp=666
+cnt=0
+while True:
+  if '666' in str(tmp):
+    cnt+=1
+  if cnt==N:
+    break
+  tmp+=1
+print(tmp)
