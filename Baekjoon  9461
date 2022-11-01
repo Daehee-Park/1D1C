@@ -1,0 +1,21 @@
+#include <stdio.h>
+//9461, Padovan sequence, Dynamic Programming
+
+int main(void)
+{
+    int n,i,k;
+    long arr[101]={0,1,1,1};
+    for(i=4;i<=101;i++)
+    {
+        arr[i]=arr[i-2]+arr[i-3];
+    }
+
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&k);
+        printf("%ld\n",arr[k]);
+    }
+
+    return 0;
+}
