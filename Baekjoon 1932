@@ -1,0 +1,51 @@
+# Triangle, Dynamic Programming
+
+#include <stdio.h>
+int dp[501][501];
+int max(int a, int b)
+{
+    return a>b?a:b;
+}
+
+void tri(int n)
+{
+    int i,j;
+    int result=0;
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=i;j++)
+        {
+            if(j==1)
+            {
+                dp[i][j]+=dp[i-1][j];
+            }
+            else if(j==i)
+            {
+                dp[i][j]+=dp[i-1][j-1];
+            }
+            else
+            {
+                dp[i][j]+=max(dp[i-1][j],dp[i-1][j-1]);
+            }
+            result=max(dp[i][j],result);
+        }
+    }
+    printf("%d\n",result);
+}
+
+int main()
+{
+    int n;
+    int i,j;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=i;j++)
+        {
+            scanf("%d",&dp[i][j]);
+        }
+    }
+    tri(n);
+
+    return 0;
+}
