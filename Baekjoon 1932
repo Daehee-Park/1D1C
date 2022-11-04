@@ -1,4 +1,4 @@
-# Triangle, Dynamic Programming
+// Triangle, Dynamic Programming
 
 #include <stdio.h>
 int dp[501][501];
