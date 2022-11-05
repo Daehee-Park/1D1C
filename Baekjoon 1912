@@ -1,0 +1,30 @@
+//Baekjoon 1912, Dynamic Programming, Continuous max sequence
+
+#include <stdio.h>
+
+int max(int a,int b)//max 정의
+{
+    return a>b?a:b;
+}
+void continuous(int n)
+{
+    int i,tmp=0,result=-1001;
+
+    while(n--)
+    {
+        scanf("%d",&i);
+        tmp=max(tmp,0)+i;//직전 인덱스까지의 합+현 인덱스, 단, tmp값이 음수면 0으로 초기화
+        result=max(tmp,result);//result에 최대 합 저장
+    }
+
+    printf("%d",result);
+}
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    continuous(n);
+
+    return 0;
+}
