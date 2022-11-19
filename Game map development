@@ -1,0 +1,50 @@
+#게임 캐릭터가 맵 안에서 움직이는 시스템 개발
+
+#input
+n,m=map(int,input().split())
+#x,y: current position, direction: current direction
+x,y,direction=map(int,input().split())
+game_map=[]
+for _ in range(n):
+	game_map.append(list(map(int,input().split())))
+
+#d:have been position
+d=[[0]*m for _ in range(n)]
+d[x][y]=1 #Initial position have been
+
+#북/동/남/서 이동 정의
+move_sets=[(0,1),(1,0),(0,-1),(-1,0)]
+#왼쪽으로 방향 전환 정의
+def turn_left():
+	global direction
+	direction-=1
+	if direction==-1:
+		direction=3
+tmp=0#while문 break를 위한 변수 선언]
+cnt=1
+while(1):
+	# 1st step
+	turn_left()
+	# 2nd step
+	fx=x+move_sets[direction][0]#이동시x_position
+	fy=y+move_sets[direction][1]#이동시y_position
+	if game_map[fx][fy]==0 and d[fx][fy]==0:#육지이고, 가본 곳이 아닐경우
+		x=fx
+		y=fy
+		d[x][y]=1
+		cnt+=1
+		tmp=0
+		continue
+	else:
+		tmp+=1
+	# 3rd step
+	if tmp==4:#
+		fx=x-move_sets[direction][0]
+		fy=y-move_sets[direction][1]
+		if game_map[fx][fy]==1:
+			print(cnt)
+			break
+		else:
+			x=fx
+			y=fy
+			tmp=0
