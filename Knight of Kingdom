@@ -1,0 +1,12 @@
+#왕실의 나이트, 구현 문제
+#체스판을 a~h열, 1~8행의 보드판으로 정의시 'a1'과 같은 입력을 하면 그 위치에서 나이트가 이동할 수 있는 경우의 수를 출력
+
+input=input()
+row=int(input[1])
+col=int(ord(input[0])-ord('a')+1)
+steps=[(-2,1),(-2,-1),(2,-1),(2,1),(-1,2),(-1,-2),(1,2),(1,-2)]
+cnt=0
+for c,r in steps:
+	if 1<=col+c<=8 and 1<=row+r<=8: cnt+=1
+
+print(cnt)
